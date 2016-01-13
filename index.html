@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="style.css" type="text/css"/>
+		<title>Stripdown.js</title>
+	</head>
+	<body>
+        <div id="header"><a href="http://www.github.com/chbk/stripdown.js">Stripdown.js</a></div>
+        <div id="titles">
+            <div id="left">
+                Input
+            </div>
+            <div id="right">
+                Preview
+            </div>
+            <label>colors<input type="checkbox" checked="checked"></label>
+        </div>
+        <div id="content">
+        	<textarea id="input">This is a paragraph.
+To break a line, simply press return.
+   Indents and multiple     spaces will be ignored.
+
+To start another paragraph, press return twice. You can _add italic
+ text_ or make it __bold__ or add `a code tag`, or a [link](github.com/chbk/stripdown.js) anywhere.
+
+You can also _mix __bolds__ and italics_.
+
+These are the characters you can escape with a backslash: \\ \[ \- \. \` \_ \>
+
+1. This is a numbered list.
+To break a line, press return.
+
+
+    To start a new paragraph in the list, press return twice, and indent with 4 spaces.
+
+ The parser is very flexible, and will understand your intent even if you indent with less than 4 spaces.
+ 
+    a. This is a nested lettered list.
+
+        - This is a nested dashed list.
+
+    c. Lists are kept in order, even if you skip a number or letter.
+
+
+> Start a blockquote with >
+
+> You can use _styles_ in blockquotes too.
+
+
+> >  And nest more quotes.
+
+
+    This is preformatted text.
+    You need 4    spaces to start a pre block.
+
+
+    - Parsing \> rules will _be_ ignored here.
+
+
+2. This is a new list.
+
+    4. Notice the first number/letter of a list is never corrected.
+
+    8. Only subsequent numbers are kept in order.
+
+        - You can add anything in lists:
+
+                Preformatted blocks
+
+            > Blockquotes</textarea>
+            <div id="preview"></div>
+        </div>
+		<!-- stripdown.js -->
+		<script type="text/javascript" src="stripdown.min.js"></script>
+		<!-- jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+		$(function(){
+			
+			function colorize() {
+				if ($('input').is(':checked')) {
+					$('em').css('color', 'orange');
+    				$('strong').css('color', 'red');
+				} else {
+					$('strong').css('color', 'black');
+					$('em').css('color', 'black');
+				}
+			}
+			
+			function parse() {
+				var parsed = stripdown($('#input').val());
+				$('#preview').html(parsed);
+				colorize();
+			}
+			
+            function resize() {
+                var scroll = $(window).scrollTop();
+                $('#input').height(0).height(Math.max($(window).height() - 150, $('#input')[0].scrollHeight + 10));
+                $(window).scrollTop(scroll);
+            }
+            
+			$('#input').on('keyup', function(){parse();resize();}).on('keydown', resize);
+			
+			$('label').on('click', colorize);
+		
+			parse();
+            resize();
+		});
+		</script>
+	</body>
+</html>

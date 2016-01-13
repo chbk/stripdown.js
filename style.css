@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#header {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 40px;
+    color: white;
+    box-sizing: border-box;
+    background: linear-gradient(rgb(130,100,160), rgb(120,90,150));
+    box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 1px #000;
+}
+
+#header a {
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+#titles {
+    position: relative;
+    height: 35px;
+    display: flex;
+    color: white;
+    background: rgb(60,60,70);
+    box-shadow: 0 4px 16px -2px rgba(0,0,0,0.6);
+}
+
+#left {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+#right {
+    flex: 1;
+    border-left: 1px solid black;
+    text-align: center;
+    font-size: 16px;
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+#content {
+    flex: 2;
+    display: flex;
+}
+
+h1 {
+    margin: 8px auto;
+    padding-left: 5px;
+    height: 20px;
+}
+
+label {
+    position: absolute;
+    right: 5px;
+    margin-top: 8px;
+}
+
+#input {
+    flex: 1;
+    margin: 0;
+    padding: 10px 12px 5px 5px;
+    margin-right: 7px;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+}
+
+#preview {
+    flex: 1;
+    border-left: 1px solid rgb(120,120,130);
+    padding: 10px 12px 5px 12px;
+    word-wrap: break-word;
+    background: rgb(248,248,248);
+}
+
+	#preview blockquote {
+    	margin: 0 0 10px 0;
+    	padding: 0 0 0 4px;
+    	border-left: 3px solid #ccc;
+	}
+	
+	#preview pre {
+    	margin: 0 0 10px 0;
+    	padding: 4px;
+    	background: #ddd;
+    	white-space: pre-wrap;
+	}
+	
+	#preview code {
+    	padding: 0 2px 0 2px;
+    	background-color: #eee;
+    	white-space: pre-wrap;
+	}
+	
+	#preview p {
+    	margin: 0 0 10px 0;
+    	padding: 0;
+	}
+	
+	#preview ol, #preview ul {
+    	margin: 0 0 10px 0;
+    	padding: 0 0 0 2em;
+    	list-style-position: outside;
+	}
+	
+	#preview ul {
+	    list-style-type: disc;
+	}
+	
+	#preview li {
+    	margin: 0 0 3px 0;
+    	padding: 0;
+	}
